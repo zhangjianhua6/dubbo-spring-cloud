@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: spring-cloud://172.20.11.233:8849
+  cloud:
+    subscribed-services: dubbo-provider-sample
+
+spring:
+  application:
+    name: dubbo-consumer-sample
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.20.11.233:8849
+  main:
+    allow-bean-definition-overriding: true
+
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 10000

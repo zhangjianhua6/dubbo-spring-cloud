@@ -1,0 +1,28 @@
+server:
+  port: 9091
+
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.alibaba.cloud.service
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+    port: -1
+  registry:
+    address: spring-cloud://172.20.11.233
+
+spring:
+  application:
+    name: dubbo-provider-sample
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.20.11.233:8849
+  main:
+    allow-bean-definition-overriding: true
+
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 10000
